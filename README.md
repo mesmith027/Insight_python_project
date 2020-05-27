@@ -1,9 +1,12 @@
 # Insight_python_project
 Python repo for insight data science internship project and general work
 
-
 ---
 ## Directories
+list of directories, what they are and the files in them
+- **notebooks:** jupyter notebooks of the narrative of the project and the direction it has taken
+  - **QL_wine.ipynb:** Quick Look at the wine reviews dataset, looking if there is enough data and any signal to develop a project on
+
 - **./data**
   - holds the possible datasets that I may use for the final project
   - **wine_reviews_150K.csv:** wine reviews from https://www.kaggle.com/
@@ -12,12 +15,13 @@ Python repo for insight data science internship project and general work
   - **ks_most_backed.csv:** kickstarter data for the most successful projects
   - **ks_live.csv:** kickstarter data on 'live' projects as of 2016-10-29 5pm PDT
 
+- **environment:** conda environment.. ???
+
+- **scripts:** scripts that are not part of the narrative but that are important for cleaning, stitching figures etc..
+
 ---
 ## What you need to run
 
-- This is run through the terminal
-    - open a terminal and navigate to this folder
-    -  to run `python sentdex_youtube_tutorial.py`
 
 
 ---
