@@ -9,7 +9,7 @@ Python repo for insight data science internship project and general work
   - **wine_reviews_150K.csv:** wine reviews from https://www.kaggle.com/
     - **wine_reviews_150K.csv:** smaller wine data set that is known to have duplicates
   - **ks_projects.csv:** kickstarter data of successful/cancelled/failed projects from https://www.kaggle.com/
-  - **ks_most_backed.csv:** kiskstarter data for the most successful projects
+  - **ks_most_backed.csv:** kickstarter data for the most successful projects
   - **ks_live.csv:** kickstarter data on 'live' projects as of 2016-10-29 5pm PDT
 
 ---
