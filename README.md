@@ -19,16 +19,6 @@ Python repo for insight data science internship project and general work
     - open a terminal and navigate to this folder
     -  to run `python sentdex_youtube_tutorial.py`
 
-- **beautifulsoup4**
-	- installed using conda: conda install -c anaconda beautifulsoup4
-
-- **lxml package**
-	- installed using conda: conda install -c anaconda lxml
-	- Pythonic binding for the C libraries libxml2 and libxslt.
-
-- **pandas**
-    - installed with pip3 (pip install pandas)
-
 
 ---
 
