@@ -23,6 +23,9 @@ list of directories, what they are and the files in them
 ## What you need to run
 - **NLTK:** natural language processing kit for python 
     - installed with: conda install -c anaconda nltk
+    
+- **flask:**
+    -install:  pip install flask
 
 
 ---
