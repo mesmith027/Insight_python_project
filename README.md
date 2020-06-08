@@ -27,7 +27,11 @@ list of directories, what they are and the files in them
     - installed with: conda install -c anaconda nltk
 
 - **flask:**
-    -install:  pip install flask
+    - install:  pip install flask
+
+- **Pickle:**
+    - used for storing trained ML algorithms
+    - install: conda install -c conda-forge pickle5
 
 
 ---

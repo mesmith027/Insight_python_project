@@ -147,8 +147,3 @@ def get_usr_input(user_input_sentence, test_tag_words, fit_rf, stopwords):
     predicted_prob = fit_rf.predict_proba(user_array)
 
     return 'Kerin O’Keefe', predicted_points, predicted_prob
-
-#fit_rf, tag_words, stopwords = run_ML()
-#print("run_ml complete")
-#name, points, percentage = get_usr_input('oak red wine with lots of tannins ash and espresso', tag_words, fit_rf, stopwords)
-#print(name, points, percentage)
