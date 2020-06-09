@@ -23,7 +23,7 @@ def decision_tree(train_feat, train_pred, test_feat, test_pred):
 def random_forest(train_feat, train_pred, test_feat, test_pred):
     # create a trained enesmble random forest clasifier
     #train_values = train_feat.values
-    rf = ensemble.RandomForestClassifier(n_estimators=100, max_depth=8, min_samples_split=2, random_state=42, n_jobs=-1)
+    rf = ensemble.RandomForestClassifier(n_estimators=100, max_depth=6, min_samples_split=2, random_state=42, n_jobs=-1)
     fit_rf = rf.fit(train_feat,train_pred)
 
     rf_r2 = fit_rf.score(train_feat,train_pred)

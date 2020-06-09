@@ -30,7 +30,7 @@ def run_NLP_BOW(first_10):
                     'carry', 'note','offers','alongside', 'drink', 'hint', 'dried','delivers','finish','lead', \
                     'firm', 'nose','palate', 'made', 'glass', 'along', 'yellow']
     stop = nltk.corpus.stopwords.words('english')
-    stopwords= set(stop).union(usr_defined_stop)
+    stopwords= set(stop).union(set(usr_defined_stop))
 
     #with added ',','.' and other custom stopwords can go straight to word_tokenize
     tokens = first_10['description'].str.lower().apply(word_tokenize)
@@ -50,12 +50,12 @@ def run_NLP_BOW(first_10):
         full_text = full_text + row
 
     # get the important root words for each wine description word
-    lemmzr = WordNetLemmatizer()
+    lemmzr = nltk.WordNetLemmatizer()
     processed_words = []
     for word in full_text:
         processed_words.append(lemmzr.lemmatize(word))
 
-    # get the top 50 most coomon words, and make them a list to be features in data
+    # get the top 50 most common words, and make them a list to be features in data
     freq = nltk.FreqDist(processed_words)
     test_tag_words = freq.most_common(50)
 
@@ -63,9 +63,9 @@ def run_NLP_BOW(first_10):
     return stopwords, tokens, test_tag_words
 
 
-def run_NLP_TFIDF():
+def run_sklearn_TFIDF():
     # use a more advanced word processing algorithm
-    
+
 
 
 

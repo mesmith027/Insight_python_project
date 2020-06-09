@@ -65,7 +65,7 @@
         </div>
         <div class="col-lg-5 my-auto">
           <div class="col">
-            <img src="../static/img/pour_wine_4.jpg" scale='auto'>
+            <img src="../static/img/pour_wine_4.jpg" width="500" height="auto">
           </div>
         </div>
       </div>
@@ -77,13 +77,54 @@
       <div class="row">
         <div class="col-md-8 mx-auto">
           <h2 class="section-heading">Wine Characteristics</h2>
-          <p>Input the key characteristics of your wine, and let our machine Learning algorithms find the best match for you!</p>
+          <p>Input the key characteristics of your wine, and let our machine Learning algorithms find the best match for you! Check the table for examples of wine attributes, and type a description in the text field.</p>
+          <p> Please Note: this is not a comprehensive list of all attributes used, feel free to use other descriptors</p>
         </div>
         <div class="col-md-8 mx-auto">
-        <h3 class="section-heading text-center">Try My App!</h3>
+          <div class="row justify-content-center">
+          <table>
+            <tr>
+              <th> <h6>Descriptons </h6>  </th>
+              <th><h6>Type </h6>  </th>
+              <th><h6>Location </h6>  </th>
+            </tr>
+            <tr>
+              <td>Oaky</td>
+              <td>Red</td>
+              <td>USA</td>
+            </tr>
+            <tr>
+              <td>Fruity</td>
+              <td>White</td>
+              <td>Germany</td>
+            </tr>
+            <tr>
+              <td>Tannins</td>
+              <td>Blend</td>
+              <td>France</td>
+            </tr>
+            <tr>
+              <td>Pepper</td>
+              <td>Sparkling</td>
+              <td>UK</td>
+            </tr>
+            <tr>
+              <td>Acidic</td>
+              <td>Rose</td>
+              <td>Canada</td>
+            </tr>
+            <tr>
+              <td>Espresso</td>
+              <td>Champagne</td>
+              <td>Italy</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+          <div class="col-md-8 mx-auto">
               <div class="col-sm m-3 text-center">
-                    <form action="/output" method="GET" id="user_input">
-                          <input class="form-control" type="text" id="user_input" name='user_input' placeholder="e.g. blablabla">
+                <form action="/output" method="GET" id="user_input">
+                          <input class="form-control" type="text" id="user_input" name='user_input' placeholder="e.g. mature vanilla, with raspberry, apple and blackberry">
                     </form>
               </div>
         <div class="row justify-content-center">
@@ -107,7 +148,7 @@
         	<h4 class="text-light text-center text-uppercase">We found something!</h4>
   	     </div>
          <div class="col">
-               <img src="{{ url_for('static', filename = my_img_name) }}" scale='auto'>
+               <img src="{{ url_for('static', filename = my_img_name) }}" max-width=50% height='auto' > <! scale='auto'>
          </div>
   	      <div class="row p-1 m-1 justify-content-center">
         	   <div class="col-md- w-50 list-group">
@@ -133,7 +174,7 @@
   <section class="features" id="features">
     <div class="container">
       <div class="section-heading text-center">
-        <h2>Unlimited Features, Unlimited Fun</h2>
+        <h3>Enter wine Decriptors</h3>
         <p class="text-muted">Check out what you can do with this app theme!</p>
         <hr>
       </div>
