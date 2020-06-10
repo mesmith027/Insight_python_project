@@ -24,12 +24,14 @@ wine_130 = pd.read_csv("../data/wine_reviews_130k.csv")
 wine_130 = cleaning.drop_unwanted_columns(wine_130)
 wine_130 = cleaning.remove_nan_reviewer(wine_130)
 
-#print(wine_130.info())
-#print(wine_130.head())
-
 # create a list of the reviewer's name's to create seperate pandas databases for each
 # and be able to run seperte ml algorithm on each person
 taster_names = wine_130['taster_name'].unique().tolist()
+
+# save list of reviewer names so we can load it into the web app
+file = 'reviewer_names.sav'
+pickle.dump(taster_names, open(file,'wb'))
+
 print(len(taster_names))
 
 #reviewer_name = taster_names[0]
@@ -38,12 +40,12 @@ for reviewer_name in taster_names:
     print(reviewer_name)
     # with preson specific data, run NLP_analysis to get stopwords, tokenized descriptions, 50 most frequent words
     custom_stopwords, wine_token_descriptions, top_50_words = nlp_words.run_NLP_BOW(wine_subset)
-    print(top_50_words)
+    #print(top_50_words)
 
     # make pandas database from top 50 words
     wine_subset = add_features.add_token_features(wine_subset, wine_token_descriptions, top_50_words)
     #print(wine_subset.info())
-    #print(len(wine_subset.columns))
+    #print(wine_subset.head())
 
     # now that we have the relevant tokens for each person, run mL algorithm
     # split the dataframe

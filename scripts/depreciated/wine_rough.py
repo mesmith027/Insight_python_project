@@ -34,7 +34,7 @@ def run_ML():
     first_10 = wine_130[wine_130['taster_name'] == 'Kerin O’Keefe']
 
     # add extra stopwords
-    usr_defined_stop = ['.', ',',"'s", 'is', "n't", '%', 'aromas', 'include', 'wine', 'opens',\
+    usr_defined_stop = ['.', ',', ';',"'s", 'is', "n't", '%', 'aromas', 'include', 'wine', 'opens',\
                     'carry', 'note','offers','alongside', 'drink', 'hint', 'dried','delivers','finish','lead', \
                     'firm', 'nose','palate', 'made', 'glass', 'along']
     stop = nltk.corpus.stopwords.words('english')

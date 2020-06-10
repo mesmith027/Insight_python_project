@@ -27,6 +27,7 @@ def recommendation_output():
                 return render_template("index.html",my_input = some_input, my_form_result="Empty")
         else:
                 render_template("index.html",my_input = some_input, my_form_result="Processing")
+                #fit_rf, tag_words, stopwords = functions.run_ML()
                 #person_name, score, precetage = functions.get_usr_input(some_input, tag_words, fit_rf, stopwords)
                 some_output=person_name
                 some_number=score[0]
