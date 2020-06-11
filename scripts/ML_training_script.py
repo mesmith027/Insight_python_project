@@ -1,9 +1,7 @@
 import pandas as pd
 from pandas import Series,DataFrame
 
-#from nltk import sent_tokenize, word_tokenize
-#import nltk.corpus
-#from nltk.stem import WordNetLemmatizer
+import pdb
 
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -33,23 +31,27 @@ file = 'reviewer_names.sav'
 pickle.dump(taster_names, open(file,'wb'))
 
 print(len(taster_names))
-
+print(taster_names)
 #reviewer_name = taster_names[0]
+taster_names = taster_names[8:10]
 for reviewer_name in taster_names:
+
     wine_subset = wine_130[wine_130['taster_name'] == reviewer_name]
     print(reviewer_name)
     # with preson specific data, run NLP_analysis to get stopwords, tokenized descriptions, 50 most frequent words
+
     custom_stopwords, wine_token_descriptions, top_50_words = nlp_words.run_NLP_BOW(wine_subset)
     #print(top_50_words)
 
     # make pandas database from top 50 words
+    pdb.set_trace()
     wine_subset = add_features.add_token_features(wine_subset, wine_token_descriptions, top_50_words)
     #print(wine_subset.info())
     #print(wine_subset.head())
 
     # now that we have the relevant tokens for each person, run mL algorithm
-    # split the dataframe
-    train_feat, test_feat, train_pred, test_pred = train_test_split(wine_subset.iloc[:,8:len(wine_subset.columns)-1], wine_subset['points'], test_size=0.2, random_state = 42)
+    # split the dataframe #len(wine_subset.columns)
+    train_feat, test_feat, train_pred, test_pred = train_test_split(wine_subset.iloc[:,8:], wine_subset['points'], test_size=0.2, random_state = 42)
 
     #run ML of choice
     fit_ml = run_ML.random_forest(train_feat,train_pred,test_feat,test_pred)
@@ -57,3 +59,7 @@ for reviewer_name in taster_names:
     # save the trained ML using pickle
     filename = 'fits/rf_fit_%s.sav'%reviewer_name
     pickle.dump(fit_ml, open(filename,'wb'))
+
+    #save the relevant features for each reviewer
+    filename = 'fits/features_%s.sav'%reviewer_name
+    pickle.dump(top_50_words, open(filename,'wb'))

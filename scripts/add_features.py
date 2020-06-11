@@ -7,7 +7,6 @@ def add_token_features(pds_data, description_words, token_words):
     for x in token_words:
         pds_data[x[0]] = 0
 
-    print(pds_data.info())
     #to use in to add features to dataframe, need to clean out all the numbers
     clean_numbers = []
     for y in token_words:
@@ -17,10 +16,7 @@ def add_token_features(pds_data, description_words, token_words):
     # add 1 for tags that appear in each discription
     #pdb.set_trace()
     pds_data= pds_data.reset_index(drop=True)
-    print(pds_data.head())
     index = -1
-    print(len(description_words))
-    print(len(pds_data))
     for row in description_words:
         index += 1
         #print(row)
@@ -31,3 +27,10 @@ def add_token_features(pds_data, description_words, token_words):
         #print(pds_data.iloc[index,8:15])
 
     return pds_data
+
+def clean_numbers(token_words):
+    clean_numbers = []
+    for y in token_words:
+        clean_numbers.append(y[0])
+    token_words = clean_numbers
+    return token_words

@@ -30,7 +30,7 @@ def special_stopwords():
     # get stopwords and add extra stopwords relevant to wine wine reviews
     usr_defined_stop = ['.', ',',';',"'s", 'is', "n't", '%', 'aromas', 'include', 'wine', 'opens',\
                     'carry', 'note','offers','alongside', 'drink', 'hint', 'dried','delivers','finish','lead', \
-                    'firm', 'nose','palate', 'made', 'glass', 'along', 'yellow', "'ll"]
+                    'firm', 'nose','palate', 'made', 'glass', 'along', 'yellow', "'ll", '(', ')']
     stop = nltk.corpus.stopwords.words('english')
     stopwords= set(stop).union(set(usr_defined_stop))
     return stopwords
