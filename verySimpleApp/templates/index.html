@@ -163,21 +163,53 @@
 
 
   {% elif my_form_result=='NotEmpty' %}
-
+  <div class="container">
+    <div class="section-heading text-center">
+        <h4 class="text text-center text-uppercase">Your top 5 reviewers</h4>
+    </div>
+  </div>
   <div class="row mt-4 justify-content-center">
-    <h4 class="text-light text-center text-uppercase">We found something!</h4>
-   </div>
-   <div class="col">
-         <img src="{{ url_for('static', filename = my_img_name) }}" max-width=50% height='auto' >
-   </div>
+    <div class="col">
+          <img src="{{ url_for('static', filename = my_img_name) }}" max-width=50% height='auto' >
+    </div>
     <div class="row p-1 m-1 justify-content-center">
-       <div class="col-md- w-50 list-group">
-          <ul class="list-group">
-          <h4 class="text-center">
-          <li class="list-group-item d-flex justify-content-between align-items-center active">
-                    <b>{{my_output}}</b>
-
-                    <span class="badge badge-primary badge-pill">SCORE: {{my_number}} </span>
+     <! <div class="col-md- w-50 list-group">
+      <!  <ul class="list-group">
+        <! <h4 class="text-center">
+          <! <li class="list-group-item d-flex justify-content-between align-items-center active">
+            <table>
+              <tr>
+                <th> <h4><b>Reviewer Name      </b></h4>  </th>
+                <th> <h4><b>   </b></h4>  </th>
+                <th> <h4><b>   </b></h4>  </th>
+                <th> <h4><b>   </b></h4>  </th>
+                <th> <h4><b>   </b></h4>  </th>
+                <th><h4><b>Score</b></h4>  </th>
+              </tr>
+              <tr>
+                <td>{{output_1}}</td>
+                <td>{{number_1}}</td>
+              </tr>
+              <tr>
+                <td>{{output_2}}</td>
+                <td>{{number_2}}</td>
+              </tr>
+              <tr>
+                <td>{{output_3}}</td>
+                <td>{{number_3}}</td>
+              </tr>
+              <tr>
+                <td>{{output_4}}</td>
+                <td>{{number_4}}</td>
+              </tr>
+              <tr>
+                <td>{{output_5}}</td>
+                <td>{{number_5}}</td>
+              </tr>
+              </tr>
+            </table>
+            </p>
+          </div>
                   </li>
                 </h4>
           </ul>
