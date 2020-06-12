@@ -10,7 +10,7 @@ import os.path
 
 # import the names of the reviewers
 loaded_names = pickle.load(open('scripts/reviewer_names.sav', 'rb'))
-
+print(loaded_names)
 #last 2 reviewers on list do not have active ML's (not enough data)
 loaded_names = loaded_names[0:len(loaded_names)-2]
 # remove Sean P. Sullivan due to feature train issues
@@ -91,9 +91,11 @@ def recommendation_output():
                 print(person_1)
                 #some_image="./img/pour_wine_3.jpg"
 
-                profile_file_name = "./wine-enthusiast-profile/%s.png"%person_1
-            
-
+                #profile_file_name = "./wine-enthusiast-profile/%s.png"%person_1
+                if os.path.exists("./static/wine_profile/%s.png"%person_1):
+                    profile_file_name = "./wine_profile/%s.png"%person_1
+                else:
+                    profile_file_name = "./wine_profile/nothing_found.png"
                 print(profile_file_name)
                 some_image=profile_file_name
                 #some_image = "./wine-enthusiast-profile/no-profile.png"
