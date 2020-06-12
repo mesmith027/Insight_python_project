@@ -6,6 +6,8 @@ from scripts.nlp_analysis import special_stopwords, normalize, get_wordnet_pos
 import scripts.user_wine_analysis as user_wine_analysis
 import scripts.add_features as add_features
 
+import os.path
+
 # import the names of the reviewers
 loaded_names = pickle.load(open('scripts/reviewer_names.sav', 'rb'))
 
@@ -87,7 +89,14 @@ def recommendation_output():
                 person_5 = top_5_list[4][0]
                 score_5 = top_5_list[4][1]
                 print(person_1)
-                some_image="./img/pour_wine_3.jpg"
+                #some_image="./img/pour_wine_3.jpg"
+
+                profile_file_name = "./wine-enthusiast-profile/%s.png"%person_1
+            
+
+                print(profile_file_name)
+                some_image=profile_file_name
+                #some_image = "./wine-enthusiast-profile/no-profile.png"
         #return render_template("index.html", my_input=some_input,my_output=some_output,my_number=some_number,my_img_name=some_image,my_form_result="NotEmpty")
 
         return render_template("index.html", my_input=some_input,output_1=person_1,number_1=score_1,\

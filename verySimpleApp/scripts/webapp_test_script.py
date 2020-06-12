@@ -54,9 +54,10 @@ for name in loaded_names:
 
     #finally run user sentence through ML
     points, probability = user_wine_analysis.run_user_in_ML(user_df, current_model)
-
+    print(probability)
+    print(len(probability))
     #store the output in a dictionary?/list-of-lists? where {name:[score accuracy]}/[name score accuracy]
     results_dic[name] = int(points[0])
 
-# return the top 5 scores in a list to send to webpage 
+# return the top 5 scores in a list to send to webpage
 top_5_list = user_wine_analysis.top_5_reviewers(results_dic)
