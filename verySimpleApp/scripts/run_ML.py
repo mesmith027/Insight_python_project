@@ -67,6 +67,8 @@ def random_forest_Reg(train_feat, train_pred, test_feat, test_pred):
 
     if len(test_feat) == 0:
         print("WARNING: no current test set in scrapped data")
+        predicted_score =[]
+        accuracy = 0
     # run on test data
     else:
         if 1 <= len(test_feat) <= 10:
@@ -84,4 +86,4 @@ def random_forest_Reg(train_feat, train_pred, test_feat, test_pred):
         accuracy = 100-np.mean(mape)
         print('accuracy:', accuracy)
 
-    return fit_rf
+    return fit_rf, predicted_score, accuracy

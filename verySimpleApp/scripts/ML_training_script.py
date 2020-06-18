@@ -64,7 +64,7 @@ for reviewer_name in taster_names:
 
     #run ML of choice
     #fit_ml = run_ML.random_forest_Clas(train_feat,train_pred,test_feat,test_pred)
-    fit_ml = run_ML.random_forest_Reg(train_feat,train_pred,test_feat,test_pred)
+    fit_ml, ml_test_pred, accuracy = run_ML.random_forest_Reg(train_feat,train_pred,test_feat,test_pred)
 
     # save the trained ML using pickle
     filename = 'fits/rf_fit_%s.sav'%reviewer_name
@@ -73,3 +73,12 @@ for reviewer_name in taster_names:
     #save the relevant features for each reviewer
     filename = 'fits/features_%s.sav'%reviewer_name
     pickle.dump(top_50_words, open(filename,'wb'))
+
+    #save ml_test_pred, actual test predictions and accuracy to files
+    dic = {'ml_prediction':ml_test_pred, 'actual_score':test_pred, 'accuracy':accuracy}
+    filename = 'fits/predicted_test_%s.sav'%reviewer_name
+    pickle.dump(dic,open(filename, 'wb'))
+    #with open(filename,'wb') as f:
+    #    pickle.dump(ml_test_pred, f)
+    #    pickle.dump(test_pred,f)
+    #    pickle.dump(accuracy,f)
