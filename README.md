@@ -26,7 +26,7 @@ list of directories, what they are and the files in them
 - **NLTK:** natural language processing kit for python
     - installed with: conda install -c anaconda nltk
 
-- **flask:**
+- **Flask:**
     - install:  pip install flask
 
 - **Pickle:**
