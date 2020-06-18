@@ -35,10 +35,6 @@ def special_stopwords():
     stopwords= set(stop).union(set(usr_defined_stop))
     return stopwords
 
-def remove_numbers():
-
-    return
-
 #map NLTK’s POS tags
 def get_wordnet_pos(word):
     """Map POS tag to first character lemmatize() accepts"""
@@ -78,13 +74,6 @@ def run_NLP_BOW(first_10):
     for row in tokens:
         full_text = full_text + row
 
-    # get the important root words for each wine description word
-    #lemmzr = nltk.WordNetLemmatizer()
-    #processed_words = []
-    #for word in full_text:
-    #    print(lemmzr.lemmatize(word))
-    #    processed_words.append(lemmzr.lemmatize(word))
-
     processed_words = normalize(full_text)
     #print(processed_words)
     # get the top 50 most common words, and make them a list to be features in data
@@ -93,6 +82,20 @@ def run_NLP_BOW(first_10):
 
     # return the stopwords, tokenized descriptions, 50 most frequent words
     return stopwords, tokens, test_tag_words
+
+def run_test_tokenize(test_df):
+    # takes the descriptions from the test dataset and turns them into tokens
+    test_tokens = test_df['description'].str.lower().apply(word_tokenize)
+
+    # get stopwords and add extra stopwords relevant to wine wine reviews
+    stopwords = special_stopwords()
+
+    # clean stopwords from test tokens (run through multiple times to get stragglers)
+    test_tokens = stopword_clean(test_tokens, stopwords)
+    test_tokens = stopword_clean(test_tokens, stopwords)
+    test_tokens = stopword_clean(test_tokens, stopwords)
+
+    return test_tokens
 
 
 def run_sklearn_TFIDF():
