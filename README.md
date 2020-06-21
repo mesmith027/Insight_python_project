@@ -1,13 +1,18 @@
 # Insight_python_project
-Python repo for insight data science internship project and general work
+Python repo for insight data science internship project and general work.
+the main web app is the the verySimpleApp folder. In that folder there is a directory that houses all the scripts to analyze the data and generate trained ML algorithms that can be loaded into the app and used to generate the predicted score of a wine based on its description.
 
 ---
 ## Directories
 list of directories, what they are and the files in them
 - **notebooks:** jupyter notebooks of the narrative of the project and the direction it has taken
   - **QL_wine.ipynb:** Quick Look at the wine reviews dataset, looking if there is enough data and any signal to develop a project on
+  - **Isaac_ws_test.ipynb:** Isaac Chung's web-scraping test of auto trader that can be used as an example
+  - **JSON_to_CSV_test.ipynb:** Test Jupyter notebook that looks at importing a json file and turning it into a csv file
+  - **regressor_accuracy_graphs_working.ipynb:** file that graphs the test accuracy of the trained ML models (currently random forest regressor) and graph the predicted and actual values for the points score of the wine
+  - **TDIDF_example.ipynb:** example fle of how to use TFIDF to implement in future versions of the scripts and ML portion of the code
 
-- **./data**
+- **data**
   - holds the possible datasets that I may use for the final project
   - **wine_reviews_150K.csv:** wine reviews from https://www.kaggle.com/
     - **wine_reviews_130K.csv:** smaller wine data set that is known to have duplicates
@@ -15,24 +20,42 @@ list of directories, what they are and the files in them
   - **ks_most_backed.csv:** kickstarter data for the most successful projects
   - **ks_live.csv:** kickstarter data on 'live' projects as of 2016-10-29 5pm PDT
 
-- **environment:** conda environment.. ???
-
-- **scripts:** scripts that are not part of the narrative but that are important for cleaning, stitching figures etc..
-
-- **verySimpleApp:** simple webApp that loads the wine_rough.py file, creates a website run locally, and allows users to type a description about a wine and runs ML algorithm to find the estimated sore that wine would recieve
+- **verySimpleApp:** simple webApp that loads the files from the scripts folder and can run locally or as an instance on AWS
+  - **scripts:** scripts that clean the data, run NLP and the chosen ML, and save the trained ML algorithms to ./fits/ folder
+    - **ML_training_sript.py:** trains selected ML algorithm (random forest regressor)
+    - **webapp_test_script.py:** used to test the sentence user input of the website on the trained ML algorithms
+    - **fits/** directory that houses all the trained ML algorithms to be loaded into the web app and the predicted_test outcomes so they can be visualized
+    - **depreciated:** holds old code no longer used
+  - **static:** holds all the formatting from the download template of the website
+  - **templates:** holds the index.html file that is the main file to run the web app
 
 ---
 ## What you need to run
 - **NLTK:** natural language processing kit for python
     - installed with: conda install -c anaconda nltk
+    - one time download of:
+     - nltk.download('stopwords')
+     - nltk.download('punkt')
+     - nltk.download('wordnet')
+     - nltk.download('averaged_perceptron_tagger')
 
 - **Flask:**
     - install:  pip install flask
+    - conda install -c anaconda flask
 
 - **Pickle:**
     - used for storing trained ML algorithms
     - install: conda install -c conda-forge pickle5
 
+- **SK-learn:** to train ML algorithms
+    conda install scikit-learn
+
+- **Pandas:**
+    - database package to manage the data
+    - conda install -c anaconda pandas
+
+- **Numpy:**
+    - conda install -c anaconda numpy
 
 ---
 
