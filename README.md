@@ -10,7 +10,7 @@ list of directories, what they are and the files in them
   - **Isaac_ws_test.ipynb:** Isaac Chung's web-scraping test of auto trader that can be used as an example
   - **JSON_to_CSV_test.ipynb:** Test Jupyter notebook that looks at importing a json file and turning it into a csv file
   - **regressor_accuracy_graphs_working.ipynb:** file that graphs the test accuracy of the trained ML models (currently random forest regressor) and graph the predicted and actual values for the points score of the wine
-  - **TDIDF_example.ipynb:** example fle of how to use TFIDF to implement in future versions of the scripts and ML portion of the code
+  - **TDIDF_example.ipynb:** example file of how to use TFIDF to implement in future versions of the scripts and ML portion of the code
 
 - **data**
   - holds the possible datasets that I may use for the final project
@@ -29,36 +29,48 @@ list of directories, what they are and the files in them
   - **static:** holds all the formatting from the download template of the website
   - **templates:** holds the index.html file that is the main file to run the web app
 
+- **test_scraper:** holds the downloaded test scraper for scraping online wine magazine Wine Enthusiast
+  - **condensed_data:** holds the data files, json and csv
+  - **WE_mag_scrapper.py:** the actual scraper script by Zackthoutt (git username)
+  - **json_to_csv.py:** script to convert json files to csv files
+  - **condense_data.py:** script to convert data stored in auto generated ./data/ folder into one json file, if the web scrapper gets denied and has to be stopped before it's finished scraping. ./data/ folder can be deleted at the end of this manually
+
 ---
 ## What you need to run
 - **NLTK:** natural language processing kit for python
-    - installed with: conda install -c anaconda nltk
-    - one time download of:
-     - nltk.download('stopwords')
-     - nltk.download('punkt')
-     - nltk.download('wordnet')
-     - nltk.download('averaged_perceptron_tagger')
+  - installed with: conda install -c anaconda nltk
+  - one time download of:
+    - nltk.download('stopwords')
+    - nltk.download('punkt')
+    - nltk.download('wordnet')
+    - nltk.download('averaged_perceptron_tagger')
 
 - **Flask:**
-    - install:  pip install flask
-    - conda install -c anaconda flask
+  - install:  pip install flask
+  - conda install -c anaconda flask
 
 - **Pickle:**
-    - used for storing trained ML algorithms
-    - install: conda install -c conda-forge pickle5
+  - used for storing trained ML algorithms
+  - install: conda install -c conda-forge pickle5
 
 - **SK-learn:** to train ML algorithms
-    conda install scikit-learn
+  - conda install scikit-learn
 
 - **Pandas:**
-    - database package to manage the data
-    - conda install -c anaconda pandas
+  - database package to manage the data
+  - conda install -c anaconda pandas
 
 - **Numpy:**
-    - conda install -c anaconda numpy
+  - conda install -c anaconda numpy
+
+- **JSON:**
+  - conda install -c jmcmurray json
+
+- **CSV:**
+  - conda install -c anaconda csvkit
+
 
 ---
-
 ## Git Repository
 
 This is a repo that is located on BitBucket, which runs git.
