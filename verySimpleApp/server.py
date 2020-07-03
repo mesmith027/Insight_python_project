@@ -91,16 +91,15 @@ def recommendation_output():
                 print(person_1)
                 #some_image="./img/pour_wine_3.jpg"
 
-                #profile_file_name = "./wine-enthusiast-profile/%s.png"%person_1
+                # get profile image if exists
                 if os.path.exists("./static/wine_profile/%s.png"%person_1):
                     profile_file_name = "./wine_profile/%s.png"%person_1
                 else:
                     profile_file_name = "./wine_profile/nothing_found.png"
                 print(profile_file_name)
                 some_image=profile_file_name
-                #some_image = "./wine-enthusiast-profile/no-profile.png"
-        #return render_template("index.html", my_input=some_input,my_output=some_output,my_number=some_number,my_img_name=some_image,my_form_result="NotEmpty")
 
+        # return reviewers and profile picture to index 
         return render_template("index.html", my_input=some_input,output_1=person_1,number_1=score_1,\
                                 output_2=person_2,number_2=score_2,\
                                 output_3=person_3,number_3=score_3,\

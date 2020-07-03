@@ -15,7 +15,7 @@ list of directories, what they are and the files in them
 - **data**
   - holds the possible datasets that I may use for the final project
   - **wine_reviews_150K.csv:** wine reviews from https://www.kaggle.com/
-    - **wine_reviews_130K.csv:** smaller wine data set that is known to have duplicates
+    - **wine_reviews_130K.csv:** smaller wine data set that actually has the wine reviewer's names (taster_name)
   - **ks_projects.csv:** kickstarter data of successful/cancelled/failed projects from https://www.kaggle.com/
   - **ks_most_backed.csv:** kickstarter data for the most successful projects
   - **ks_live.csv:** kickstarter data on 'live' projects as of 2016-10-29 5pm PDT
