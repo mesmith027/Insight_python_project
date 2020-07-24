@@ -11,9 +11,11 @@ My question then became: maybe the reason that reviews vary so much from reviewe
 If I can predict the score a wine will receive based on which reviewer is tasting it, then effectively, they can be sent wines with descriptions that align with their known preferences and have a high probability to get a good rating or receive a winning score at a competition. At competitions, the reviewers/wine tasters that will be the judges are published well in advance, so tailoring the wine submission from a big wine brand is not difficult.   
 
 ### How do wine ratings work?
-Wine is rated on a scale of 0-100, 100 being the best and 0 being terrible. However, common knowledge in the wine rating industry is that anything that is rated below 80 is deemed "undrinkable". Therefore, the only ratings that are actually seen are on the 20 point scale between 80 (barely drinkable) to 100 (perfect score). Which is sometimes why some wine is rated on a scale of 0-20, this actually represents the number of points added to 80. For example on the "20 point scale" a rating of 0 is actually: 80+0=80, and a rating of 10 is: 80+10=90.
+Wine is rated on a scale of 0-100, 100 being the best and 0 being terrible. However, common knowledge in the wine rating industry is that anything that is rated below 80 is deemed (depending on the source) either "undrinkable" or "not-recommended". Therefore, the most commonly seen ratings are on the 20 point scale between 80 (just passed) to 100 (perfect score). Which is sometimes why some wine is rated on a scale of 0-20, this actually represents the number of points added to 80. For example on the "20 point scale" a rating of 0 is actually: 80+0=80, and a rating of 10 is: 80+10=90.
 
-Too be considered a good review or a competition win in most cases/competitions the wine must receive a score of 90 (10) or above.
+Too be considered a good review or a competition win in most cases/competitions the wine must receive a score of 90 (10) or above. See the Image for the most common scales used in the wine industry.
+
+![Popular wine scales compared](readme_imgs/wine_scale.jpg?raw=true)
 
 ## Goal
 The main goal of this project is to test my hypothesis; that there are detectable trends in how a wine taster rates wines based on the described flavours and aromas from their wine rating history. The description of a wine categorizes the inherent flavours and aromas of a wine that are detectable when you taste it. Look on the back of any wine bottle and you will see such descriptor words such as: apple, pear, chocolate, tannins, dry, sweet etc.. These words all describe the taste and smell of the wine, and will be used to try and predict a wine score.
@@ -21,8 +23,23 @@ The main goal of this project is to test my hypothesis; that there are detectabl
 For this to work, each reviewer will have their own trained machine learning algorithm based on their unique wine rating history. Then each individual algorithm will be loaded into a webbapp where a description of a wine can be put into a field and a table with the reviewers names and top 5 scores will be generated based on that wines' description.
 
 ## Data
+The data was scraped from a well known wine magazine called: Wine Enthusiast. I used a 3 year old scrapped data set from Kraggle as the training set and then scrapped new data from the Wine Enthusiast to be used as a testing set.
 
-## Exploratory Analysis
+The training data looks like the picture below:
+![Training Data Set](readme_imgs/data.png?raw=true)  
+
+As you can see it consists of row of wine reviews from various reviewers as well as the description of that wine's taste and aroma. For now I will ignore the other categories and focus just on the wine's description.
+
+### Exploratory Analysis
+I wanted to check a few things before I really got started.
+1. The number of reviews for each reviewer: if the number is too small then I wont get a good fit and will discard them from my training set.
+2. Do all the reviews scrapped have an associated reviewer name: if there are nan's in the name field then these will be discarded.
+3. What are the distributions of the wine ratings: if the data is severely unbalanced (many more reviews in 80's and not many in the 90's) then I may have to use some oversampling techniques to help with this
+4. I want to look at the frequency of the top 50 words: I want to make sure that after I have run a standard NLP pipeline on the descriptions that we have words that make sense to train on for the wine industry
+
+![Number of Reviews](readme_imgs/reviewers.png?raw=true)
+![Distribution of Scores](readme_imgs/number_of_scores.png?raw=true)
+![Frequency of Words](readme_imgs/descriptor_counts.png?raw=true)
 
 ---
 ## Directories
