@@ -1,12 +1,12 @@
 # Insight_python_project
 Python repo for insight data science internship project and general work.
-The main web app is the the verySimpleApp folder. In that folder there is a directory that houses all the scripts to analyze the data and generate trained ML algorithms that can be loaded into the app and used to generate the predicted score of a wine based on its description.
+The main web app is in the verySimpleApp folder. In that folder there is a directory that houses all the scripts to analyze the data and generate trained ML algorithms that can be loaded into the app and used to generate the predicted score of a wine based on its description.
 
 ## The Problem
 The wine industry spends a lot of money sending wine to reviewers/tasters and competitions each year. A good review or competition win can translate to an increase in revenue for that wine by $60,000 USD and increase the demand for longer than advertising. The problem is that wine tasting is known to be a junk science with reviews from different reviewers being wildly different for the same wine, as well as the same reviewer rating the same wine differently. So the problem then becomes, why do these reviews vary so widely? And from a business perspective, how can we increase our revenue, or decrease or losses from competitions/bad reviews?
 
 ## The Question:
-My question then became: maybe the reason that reviews vary so much from reviewer to reviewer is that you can never truly be impartial, and flavours and types of wine that that particular reviewer likes to drink in their spare time is affecting there wine rating score. If this is the case, I then reasoned it might be possible to predict what rating they will give a wine based on their previous wine rating history.
+My question then became: maybe the reason that reviews vary so much from reviewer to reviewer is that you can never truly be impartial, and the flavours and types of wine that a particular reviewer likes to drink in their spare time is affecting their wine rating score? If this is the case, I then reasoned it might be possible to predict what rating they will give a wine based on their previous wine rating history.
 
 If I can predict the score a wine will receive based on which reviewer is tasting it, then effectively, they can be sent wines with descriptions that align with their known preferences and have a high probability to get a good rating or receive a winning score at a competition. At competitions, the reviewers/wine tasters that will be the judges are published well in advance, so tailoring the wine submission from a big wine brand is not difficult.   
 
@@ -42,11 +42,11 @@ Below is a bar graph of the number of reviews for each reviewer name. In fact, t
 ![Number of Reviews](readme_imgs/reviewers.png?raw=true)
 
 #### 3:
-Below is a histogram for the distribution of the scores for all the wine reviews. Luckily, it looks very normally distributed, so i will not need to do any oversampling techniques for unbalanced datasets, since "wins" are 90 and above and "losses" are 89 and below.
+Below is a histogram for the distribution of the scores for all the wine reviews. Luckily, it looks very normally distributed, so I will not need to do any oversampling techniques for unbalanced datasets, since "wins" are 90 and above and "losses" are 89 and below.
 ![Distribution of Scores](readme_imgs/number_of_scores.png?raw=true)
 
 #### 4:
-This is the frequency (number of counts) after running a standard Bag-of-Words on the wine descriptions. The words all seem very relevant to the wine tasting industry, although some many need to be removed before training as they are not likely to be useful (such as glass and whiff). 
+This is the frequency (number of counts) after running a standard Bag-of-Words on the wine descriptions. The words all seem very relevant to the wine tasting industry, although some many need to be removed before training as they are not likely to be useful (such as glass and whiff).
 ![Frequency of Words](readme_imgs/descriptor_counts.png?raw=true)
 
 ---
