@@ -5,7 +5,7 @@ The main web app is the the verySimpleApp folder. In that folder there is a dire
 ## The Problem
 The wine industry spends a lot of money sending wine to reviewers/tasters and competitions each year. A good review or competition win can translate to an increase in revenue for that wine by $60,000 USD and increase the demand for longer than advertising. The problem is that wine tasting is known to be a junk science with reviews from different reviewers being wildly different for the same wine, as well as the same reviewer rating the same wine differently. So the problem then becomes, why do these reviews vary so widely? And from a business perspective, how can we increase our revenue, or decrease or losses from competitions/bad reviews?
 
-# The Question:
+## The Question:
 My question then became: maybe the reason that reviews vary so much from reviewer to reviewer is that you can never truly be impartial, and flavours and types of wine that that particular reviewer likes to drink in their spare time is affecting there wine rating score. If this is the case, I then reasoned it might be possible to predict what rating they will give a wine based on their previous wine rating history.
 
 If I can predict the score a wine will receive based on which reviewer is tasting it, then effectively, they can be sent wines with descriptions that align with their known preferences and have a high probability to get a good rating or receive a winning score at a competition. At competitions, the reviewers/wine tasters that will be the judges are published well in advance, so tailoring the wine submission from a big wine brand is not difficult.   
@@ -28,7 +28,7 @@ The data was scraped from a well known wine magazine called: Wine Enthusiast. I 
 The training data looks like the picture below:
 ![Training Data Set](readme_imgs/data.png?raw=true)  
 
-As you can see it consists of row of wine reviews from various reviewers as well as the description of that wine's taste and aroma. For now I will ignore the other categories and focus just on the wine's description.
+As you can see it consists of rows of wine reviews from various reviewers as well as the description of that wine's taste and aroma. For now I will ignore the other categories and focus just on the wine's description.
 
 ### Exploratory Analysis
 I wanted to check a few things before I really got started.
@@ -37,8 +37,16 @@ I wanted to check a few things before I really got started.
 3. What are the distributions of the wine ratings: if the data is severely unbalanced (many more reviews in 80's and not many in the 90's) then I may have to use some oversampling techniques to help with this
 4. I want to look at the frequency of the top 50 words: I want to make sure that after I have run a standard NLP pipeline on the descriptions that we have words that make sense to train on for the wine industry
 
+#### 1 and 2:
+Below is a bar graph of the number of reviews for each reviewer name. In fact, there are quite a few reviews that do not have an associated reviewer name with them and so these will have to be discarded. For the last two names on the graph, Fiona Adams and Christina Pickard, there is not likely enough reviews to create a good ML fit. So for now I will train with the other 17 reviewers that I have better statistics on.
 ![Number of Reviews](readme_imgs/reviewers.png?raw=true)
+
+#### 3:
+Below is a histogram for the distribution of the scores for all the wine reviews. Luckily, it looks very normally distributed, so i will not need to do any oversampling techniques for unbalanced datasets, since "wins" are 90 and above and "losses" are 89 and below.
 ![Distribution of Scores](readme_imgs/number_of_scores.png?raw=true)
+
+#### 4:
+This is the frequency (number of counts) after running a standard Bag-of-Words on the wine descriptions. The words all seem very relevant to the wine tasting industry, although some many need to be removed before training as they are not likely to be useful (such as glass and whiff). 
 ![Frequency of Words](readme_imgs/descriptor_counts.png?raw=true)
 
 ---
